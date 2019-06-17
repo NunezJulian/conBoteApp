@@ -10,14 +10,10 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import android.os.Build
 import android.widget.Toast
-import com.conboteapp.Services.BubbleNoteService
-import android.widget.SeekBar
+import com.conboteapp.floatButton.FloatActivity
 
 
-class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
-
-    private val mSpringTensionSlider: SeekBar? = null
-    private val mSpringFrictionSlider: SeekBar? = null
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,15 +28,8 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         }
 
         button.setOnClickListener {
-            val i = Intent(this, BubbleNoteService::class.java)
-            startService(i)
-            //changeActivity(this, FloatActivity())
+            changeActivity(this, FloatActivity())
         }
-        mSpringTensionSlider?.progress = BubbleNoteService.sSpringTension
-        mSpringFrictionSlider?.progress = BubbleNoteService.sSpringFriction
-
-        mSpringTensionSlider?.setOnSeekBarChangeListener(this)
-        mSpringFrictionSlider?.setOnSeekBarChangeListener(this)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -62,24 +51,4 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         startActivity(intent)
 
     }
-
-    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        if (seekBar == mSpringTensionSlider) {
-            BubbleNoteService.sSpringTension = progress
-        } else if (seekBar == mSpringFrictionSlider) {
-            BubbleNoteService.sSpringFriction = progress
-        }
-        BubbleNoteService.setSpringConfig()
-    }
-
-    override fun onStartTrackingTouch(p0: SeekBar?) {
-
-    }
-
-    override fun onStopTrackingTouch(p0: SeekBar?) {
-
-    }
-
-
-
 }

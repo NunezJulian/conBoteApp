@@ -19,10 +19,5 @@
         </activity>
         <activity android:name=".floatButton.FloatActivity">
         </activity>
-        <service
-                android:name="com.conboteapp.Services.BubbleNoteService"
-                android:exported="false"
-                android:permission="android.permission.SYSTEM_ALERT_WINDOW">
-        </service>
     </application>
 </manifest>
