@@ -4,4 +4,7 @@
     <string name="floating_widget_label">Floating Widget Label</string>
     <string name="floating_widget_details">Floating Widget Details</string>
     <string name="draw_other_app_permission_denied">Draw over other app permission not available. App won\'t work without permission. Please try again.</string>
+    <string name="spring_tension">Spring tension</string>
+    <string name="spring_friction">Spring friction</string>
+    <string name="iniciar_flotante">Iniciar flotante</string>
 </resources>
