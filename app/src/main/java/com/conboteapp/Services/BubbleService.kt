@@ -1,21 +1,25 @@
 package com.conboteapp.Services
 
 import android.content.Context
+import android.os.Build
+import android.support.annotation.RequiresApi
 import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.Toast
 import com.conboteapp.R
+import com.conboteapp.Services.bubbles.BubbleLayout
+import com.conboteapp.Services.bubbles.BubblesManager
 import com.conboteapp.floatButton.ConBotePresenter
 import com.conboteapp.floatButton.model.ImageBase
-import com.txusballesteros.bubbles.BubbleLayout
-import com.txusballesteros.bubbles.BubblesManager
 
 class BubbleService{
 
     var bubblesManager: BubblesManager? = null
 
+
+    @RequiresApi(Build.VERSION_CODES.O)
     fun initBubble(context: Context, button: Button, window: Window) {
         bubblesManager = BubblesManager.Builder(context)
             .setTrashLayout(R.layout.bubble_remove)
@@ -23,13 +27,15 @@ class BubbleService{
         bubblesManager!!.initialize()
     }
 
-    fun addNewBubble(context: Context, button: Button,  window: Window) {
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun addNewBubble(context: Context, button: Button, window: Window) {
         val bubbleView = LayoutInflater.from(context)
             .inflate(R.layout.bubble_layout, null) as BubbleLayout
 
         bubbleView.setOnBubbleRemoveListener {
             button.isEnabled = true
             Toast.makeText(context, "Bye bye!", Toast.LENGTH_SHORT).show()
+            bubblesManager!!.recycle()
         }
         val screenshotservice = ScreenShotService()
 

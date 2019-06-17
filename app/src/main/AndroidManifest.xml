@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
             android:allowBackup="true"
@@ -22,5 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <service android:name=".Services.bubbles.BubblesService" android:enabled="true">
+        </service>
     </application>
 </manifest>

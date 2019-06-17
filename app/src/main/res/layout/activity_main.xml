@@ -11,13 +11,13 @@
         android:keepScreenOn="true">
     <TextView
             android:text="ConBoteApp Conffeti"
-            android:layout_width="wrap_content"
-            android:layout_height="93dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/textTitle"
             android:textAlignment="center"
             app:fontFamily="@font/robotobold"
             android:layout_marginTop="32dp"
-            android:textSize="@dimen/text_size_ultralarge"
+            android:textSize="@dimen/text_size_medium"
             android:textColor="@color/colorPrimaryBlue"
             android:layout_marginBottom="117dp"
             android:layout_marginRight="93dp"

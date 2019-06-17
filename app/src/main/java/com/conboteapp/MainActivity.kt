@@ -13,6 +13,7 @@ import android.os.Build
 import android.widget.Toast
 import android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION
 import android.provider.Settings.canDrawOverlays
+import android.support.annotation.RequiresApi
 import com.conboteapp.Services.BubbleService
 import com.conboteapp.floatButton.IFloatView
 
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity(), IFloatView {
 
     private var bubbleService: BubbleService? = null
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,7 +82,7 @@ class MainActivity : AppCompatActivity(), IFloatView {
     }
 
     override fun onDataErrorFromApi(throwable: Throwable) {
-        Toast.makeText(this, "bad", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "SERVICIO FALLIDO, VERIFIQUE SU CONEXIÓN A INTERNET", Toast.LENGTH_LONG).show()
     }
 
 }
