@@ -72,7 +72,7 @@
                 android:max="100"/>
 
         <Button
-                android:layout_width="match_parent"
+                android:layout_width="104dp"
                 android:layout_height="match_parent"
                 android:id="@+id/button"
                 android:text="@string/iniciar_flotante"
