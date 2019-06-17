@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Created by https://www.gitignore.io/api/gradle,android,intellij,intellij+all,androidstudio
 # Edit at https://www.gitignore.io/?templates=gradle,android,intellij,intellij+all,androidstudio
@@ -7,6 +8,11 @@
 *.apk
 *.ap_
 *.aab
+=======
+# Built application files
+*.apk
+*.ap_
+>>>>>>> 35249a69db0db5f44b17722c1403423700cf3730
 
 # Files for the ART/Dalvik VM
 *.dex
@@ -47,6 +53,7 @@ captures/
 .idea/dictionaries
 .idea/libraries
 .idea/caches
+<<<<<<< HEAD
 # Android Studio 3 in .gitignore file.
 .idea/caches/build_file_checksums.ser
 .idea/modules.xml
@@ -55,12 +62,22 @@ captures/
 # Uncomment the following lines if you do not want to check your keystore files in.
 #*.jks
 #*.keystore
+=======
+
+# Keystore files
+# Uncomment the following line if you do not want to check your keystore files in.
+#*.jks
+>>>>>>> 35249a69db0db5f44b17722c1403423700cf3730
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
 
 # Google Services (e.g. APIs or Firebase)
+<<<<<<< HEAD
 # google-services.json
+=======
+google-services.json
+>>>>>>> 35249a69db0db5f44b17722c1403423700cf3730
 
 # Freeline
 freeline.py
@@ -73,6 +90,7 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+<<<<<<< HEAD
 
 # Version control
 vcs.xml
@@ -341,3 +359,5 @@ gradle-app.setting
 **/build/
 
 # End of https://www.gitignore.io/api/gradle,android,intellij,intellij+all,androidstudio
+=======
+>>>>>>> 35249a69db0db5f44b17722c1403423700cf3730
