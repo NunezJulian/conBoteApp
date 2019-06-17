@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity(), IFloatView {
 
     override fun onDestroy() {
         super.onDestroy()
-        bubbleService = BubbleService()
         bubbleService!!.bubblesManager!!.recycle()
     }
 
