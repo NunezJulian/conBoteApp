@@ -7,6 +7,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.Toast
 import com.conboteapp.R
+import com.conboteapp.floatButton.ConBotePresenter
 import com.conboteapp.floatButton.model.ImageBase
 import com.txusballesteros.bubbles.BubbleLayout
 import com.txusballesteros.bubbles.BubblesManager
@@ -37,7 +38,9 @@ class BubbleService{
 
             val bitmap = screenshotservice.screenshot(rootView)
             val base64 = screenshotservice.save(bitmap, context)
-            val imageBase = ImageBase(base64)
+
+            val imageBase = ImageBase(base64).toString()
+            ConBotePresenter(context).getDataFromApi(ImageBase(imageBase))
         }
 
         bubbleView.setShouldStickToWall(true)

@@ -14,9 +14,10 @@ import android.widget.Toast
 import android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION
 import android.provider.Settings.canDrawOverlays
 import com.conboteapp.Services.BubbleService
+import com.conboteapp.floatButton.IFloatView
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), IFloatView {
 
     private var bubbleService: BubbleService? = null
 
@@ -28,10 +29,8 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         checkPermissions()
         bubbleService = BubbleService()
-
         button.setOnClickListener {
             bubbleService!!.initBubble(this, button, window)
-            bubbleService!!.addNewBubble(this, button, window)
             button.isEnabled = false
         }
     }
@@ -72,6 +71,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        bubbleService = BubbleService()
         bubbleService!!.bubblesManager!!.recycle()
     }
+
+    override fun onDataSuccessFromApi(message: String) {
+        Toast.makeText(this, "SERVICIO CONECTADO", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onDataErrorFromApi(throwable: Throwable) {
+        Toast.makeText(this, "bad", Toast.LENGTH_LONG).show()
+    }
+
 }

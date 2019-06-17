@@ -14,7 +14,7 @@ class ConBotePresenter(context: Context){
 
     fun getDataFromApi(base: ImageBase){
         RetrofitService.create()
-            .getAnswers(base)
+            .getAnswers("99d457ca-86ea-11e9-a208-adb259289af1")
             .enqueue(object : Callback<ResponseImage>{
                 override fun onResponse(call: Call<ResponseImage>, response: Response<ResponseImage>) {
                     login.onDataSuccessFromApi(response.body()?.answer.toString())
