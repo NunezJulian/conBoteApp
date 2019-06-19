@@ -37,42 +37,8 @@
             android:focusable="true"
             android:focusableInTouchMode="true">
 
-        <TextView
-                android:layout_marginTop="32dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/spring_tension"
-                android:textSize="@dimen/text_size_medium"
-                android:padding="@dimen/padding_default"
-                android:layout_marginBottom="15dp"
-                android:layout_marginRight="64dp"
-                android:layout_marginLeft="64dp"/>
-
-        <SeekBar
-                android:id="@+id/spring_tension"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="500"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/spring_friction"
-                android:textSize="@dimen/text_size_medium"
-                android:padding="@dimen/padding_default"
-                android:textAlignment="center"
-                android:layout_marginBottom="15dp"
-                android:layout_marginRight="64dp"
-                android:layout_marginLeft="64dp"/>
-
-        <SeekBar
-                android:id="@+id/spring_friction"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="100"/>
-
         <Button
-                android:layout_width="104dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/button"
                 android:text="@string/iniciar_flotante"

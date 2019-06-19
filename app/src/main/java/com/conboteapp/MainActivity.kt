@@ -2,9 +2,18 @@ package com.conboteapp
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.ImageFormat
+import android.graphics.PixelFormat
+import android.hardware.display.DisplayManager
+import android.media.Image
+import android.media.ImageReader
+import android.media.projection.MediaProjection
+import android.media.projection.MediaProjectionManager
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -14,13 +23,19 @@ import android.widget.Toast
 import android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION
 import android.provider.Settings.canDrawOverlays
 import android.support.annotation.RequiresApi
+import android.util.DisplayMetrics
+import android.view.Surface
 import com.conboteapp.Services.BubbleService
 import com.conboteapp.floatButton.IFloatView
+import android.graphics.BitmapFactory
+import android.graphics.Bitmap
+import com.conboteapp.Services.ScreenshotManager
 
 
 class MainActivity : AppCompatActivity(), IFloatView {
 
     private var bubbleService: BubbleService? = null
+    lateinit var screenshotManager: ScreenshotManager
 
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("InflateParams")
@@ -29,12 +44,22 @@ class MainActivity : AppCompatActivity(), IFloatView {
 
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+
+        screenshotManager = ScreenshotManager()
+        screenshotManager.requestScreenshotPermission(this, 1000)
         checkPermissions()
+
         bubbleService = BubbleService()
         button.setOnClickListener {
-            bubbleService!!.initBubble(this, button, window)
+            bubbleService!!.initBubble(this, button, window, screenshotManager)
             button.isEnabled = false
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        super.onActivityResult(requestCode, resultCode, data)
+        screenshotManager.onActivityResult(1000, data)
     }
 
     fun checkPermissions(){
